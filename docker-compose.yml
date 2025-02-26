@@ -21,7 +21,7 @@ services:
           - whoami.localhost
 
   keycloak:
-    image: jboss/keycloak:latest
+    image: quay.io/keycloak/keycloak:latest
     volumes:
     - ./config/keycloak/:/keycloak/:ro
     depends_on:
@@ -30,11 +30,13 @@ services:
       # Use the inbuilt h2 database for demo purposes
       DB_VENDOR: h2
       # Credentials for demo
-      KEYCLOAK_USER: admin
-      KEYCLOAK_PASSWORD: password
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: password
       # Set PROXY_ADDRESS_FORWARDING so that Keycloak knows it is behind a proxy
       PROXY_ADDRESS_FORWARDING: "true"
-      KEYCLOAK_HOME: /opt/jboss/keycloak
+      KEYCLOAK_HOME: /opt/keycloak
+      KC_FEATURES: preview
+      KC_HOSTNAME: https://keycloak.localhost
     entrypoint: /keycloak/start.sh
 
   gatekeeper:

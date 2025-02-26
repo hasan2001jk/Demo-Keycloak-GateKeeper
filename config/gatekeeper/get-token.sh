@@ -19,7 +19,7 @@ grant_type=password
 keycloak_url=${KEYCLOAK_URL:-https://keycloak.localhost}
 
 # Gets you a token from client
-token=$(curl -X POST -H 'Accept: application/json' -sSk "$keycloak_url/auth/realms/${realm}/protocol/openid-connect/token" -d "client_id=${client_id}&password=${password}&username=${username}&grant_type=${grant_type}" | cut -d '"' -f4)
+token=$(curl -X POST -H 'Accept: application/json' -sSk "$keycloak_url/realms/${realm}/protocol/openid-connect/token" -d "client_id=${client_id}&password=${password}&username=${username}&grant_type=${grant_type}" | cut -d '"' -f4)
 
 export KEYCLOAK_TOKEN=$token
 

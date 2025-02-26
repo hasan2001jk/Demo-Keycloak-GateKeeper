@@ -14,7 +14,7 @@ echo ">>> Adding cert to system CA store"
 # Wait for keycloak to be ready (use a direct connection to the container to
 #   test, because caddy (keycloak.localhost) comes up way before the service is
 #   ready
-/tmp/wait-for-it.sh -t 60 keycloak:8443
+/tmp/wait-for-it.sh -t 120 keycloak:8080
 
 # Sets up this client with keycloak
 #   client roles will be passed to setup.sh

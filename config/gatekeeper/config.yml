@@ -4,7 +4,7 @@ client-id: whoami
 # This is the discovery url (gatekeeper appends
 #   `/.well-known/openid-configuration` to this, to obtain the public keys from
 #   the authorization server
-discovery-url: https://keycloak.localhost/auth/realms/applications
+discovery-url: https://keycloak.localhost/realms/applications
 
 # This is the encryption key that is used to encrypt the refresh token. In this
 #   config, the refresh token is encrypted set in the `kc-state`
